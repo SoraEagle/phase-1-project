@@ -1,0 +1,8 @@
+section {
+    margin: 50px;
+}
+
+table, th, td, tr {
+    border: 1px solid thick;
+    empty-cells: hide;
+}

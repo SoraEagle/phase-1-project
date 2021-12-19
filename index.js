@@ -1,20 +1,27 @@
 //Write JS code here
+//Psuedocode:
+
+//Global scope variables:
+
+
+
+// Use DOMContentLoaded:
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM has loaded");
+    const searchBtn = document.querySelector("#search");
+})
+
+
 /*
-Psuedocode:
-
 function loadTable(){
-    const table = getElementById("tableBody");
-    const searchResult = //The innerText of the text field;
+    let tableUrl = "www.thecocktaildb.com/api/json/v1/1/search.php?s="; //The url, except for the search word.
 
-    loop{
+    "submit"{
         // insert info
-        fetch(`www.thecocktaildb.com/api/json/v1/1/search.php?s= //drink name`, {
+        fetch(`tableUrl${filter}`, {
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-            body: JSON.stringify(//The table data),
         })
     }
-}
-*/
+}*/
+
+

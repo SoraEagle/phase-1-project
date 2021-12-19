@@ -6,7 +6,20 @@ section {
     margin: 50px;
 }
 
-table, th, td, tr {
-    border: 1px solid thick;
+.table, .th, .td, .tr {
+    border: solid thick;
     empty-cells: hide;
 }
+
+.container {
+    padding: 1rem;
+    width: stretch;
+    height: auto;
+    display: none;
+    background: #515DA2;
+    opacity: .8;
+  }
+
+  .drink-form {
+    width: 80%
+  }

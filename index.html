@@ -23,28 +23,26 @@
 
 
   <main>
-    <section>
-      <!--Search Form-->
+    <section><!--Search Form-->
+      <form id="drink-form">
       <p>Search for Cocktails</p>
-
-      <span>
-        <input type="text" id="drink" name="drink" placeholder="margarita">
-        <!--onclick=""-->
-        <button type="button" id="search">Search</button>
-      </span>
+      Drink Name: <input type="text" id="drink" name="drink" placeholder="margarita">
+      <!--onclick=""-->
+      <input type="submit" id="search" value="Search"/>
+      </form>
     </section>
     
 
-    <section>
-      <!--Cocktails Table-->
-      <table id="cocktailsTable" border="1px" solid thick>
+    <section><!--Cocktails Table-->
+      <table id="cocktailsTable" border="1px">
         <!--Table Contents-->
-        <tr>
+        <tr><!--Table Header-->
           <th>Cocktail</th>
           <th>Cocktail Image</th>
           <th>Alcoholic?</th>
           <th>Ingredients</th>
         </tr>
+        <!--Next Table Row...-->
         <!--Add JS code to insert new <tr> and <td>'s per cocktail returned'-->
 
         <tbody id="tableBody"></tbody>
@@ -56,11 +54,11 @@
   <footer>
     <a id="contact"><h3>Contact</h3></a>
     <p>Email: <a href="phillips.matthew829@gmail.com">phillips.matthew829@gmail.com</a></p>
+    
     <details>
-      <!-- Place Credits, contanct info,  -->
-      
-      <summary><!-- Place Company here -->
-        &copy; 2021 Cocktail Maestros </summary>
+      <!-- Place Credits, contanct info,  -->     
+      <summary><!-- Place Company and &copy here -->
+        &copy; 2021 Cocktail Maestros</summary>
         <p>All Rights Reserved.</p>
     </details>
   </footer>

@@ -1,9 +1,16 @@
 //Write JS code here
 //Psuedocode:
 
+
+/*
+table: references the "tableBody" of the "cocktailsTable" in index.html.
+filter: References the innerText of the text field in index.html.
+*/
+
+
 //Global scope variables:
 const table = document.getElementById("tableBody");
-const filter = document.getElementByID("drink").innerText; //The innerText of the text field;
+const filter = document.getElementById("drink").innerText; //The innerText of the text field;
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -34,13 +41,12 @@ function tableSubmit(event){
 }*/
 
 /*
-let drinkForm = document.getElementsByTagName("form")[0];
+let drinkForm = document.getElementById("drink-form");
 drinkForm.addEventListener("submit", tableSubmit);
 */
 
 
-//Use addEventListener("change", ()=>{}) to change search filter with text field's innerText
-/*
+//Use addEventListener("change", ()=>{}) to change filter with text field's innerText
 document.addEventListener("change", () => {
-    //
-})*/
+    filter = getElementById("drink").innerText;
+})

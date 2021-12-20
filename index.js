@@ -26,13 +26,11 @@ function loadTable(){
     let tableUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita";
     let completeUrl = `tableUrl${filter}`; //The URL used to fetch the search results.
 
-    //Fetch table data
     fetch(tableUrl, { //Find way to change to completeUrl without errors!!!
         method: 'GET',
     })
     .then(response => response.json()) //Converts response to JSON
     .then(data => {
-        // debugger;
         // console.log(data);
         /*
         strDrink: Drink Name (String)
@@ -41,7 +39,12 @@ function loadTable(){
         strIngredient1, strIngredient2, ... strIngredient15: Ingredients (String)
         */
 
-       //
+        //
+
+       //Invoke deleteRows, then createRows:
+       deleteRows();
+
+       createRows();
     })
 }
 
@@ -62,7 +65,6 @@ function tableSubmit(event){ //Function to ...
     event.preventDefault(); //Prevent reloading of page.
     loadTable();
 }
-
 
 let drinkForm = document.getElementById("drink-form");
 drinkForm.addEventListener("submit", tableSubmit); //Invoke the tableSubmit function with the search button.

@@ -6,19 +6,14 @@ section {
     margin: 50px;
 }
 
-.table, .th, .td, .tr {
-    border: solid thick;
-    empty-cells: hide;
+table {
+    border: solid;
 }
 
-.container {
-    padding: 1rem;
-    width: stretch;
-    height: auto;
-    display: none;
-    background: #515DA2;
-    opacity: .8;
-  }
+th, td, tr {
+    border: double;
+    empty-cells: hide;
+}
 
   .drink-form {
     width: 80%

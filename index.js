@@ -7,6 +7,9 @@ Descriptions:
     input: the text field in the form used to generate the table of search results.
     filter: References variable 'input' in index.html; Used to complete the URL for the fetch.
     completeUrl: the entire URL to be used for the fetch; Includes 'filter' at the very end.
+    ingredients: list of each drink's ingredients.
+    cocktails: Array for the 'drink' Objects.
+    drink: Object for the data.drinks variables.
 */
 
 //Global scope variables: See Descriptions above for more information.
@@ -30,33 +33,31 @@ function loadTable(){
     .then(response => response.json()) //Converts response to JSON
     .then(data => {
         /*
-        data.drinks.strDrink: Drink Name (Array of Strings)
-        data.drinks.strDrinkThumb: Drink Image (Array of Strings)
-        data.drinks.strAlcoholic: Alcoholic?(Array of booleans)
-        data.drinks.strIngredient1, strIngredient2, ... strIngredient15: Ingredients (Array of Arrays ofStrings)
+        data.drinks.strDrink: drinkName
+        data.drinks.strDrinkThumb: drinkImag 
+        data.drinks.strAlcoholic: alcoholic
+        data.drinks.strIngredient1, strIngredient2, ... strIngredient15: ingredients (Array of ingredients)
         */
 
-        
-        let drinkName = [];
-        let drinkImg = [];
-        let alcoholic = [];
-        // let ingredients = [];
+        let cocktails = []; //Array of Objects
 
         for(let i = 0; i < data.drinks.length; i++){
-            
-            drinkName.push(data.drinks[i].strDrink);
-            drinkImg.push(data.drinks[i].strDrinkThumb);
-            alcoholic.push(data.drinks[i].strAlcoholic === "Alcoholic");
-            for(let number = 0; number < 15; number++){
-                // ingredients.push(`data.drinks[i].strIngredient${i+1}`);
+            let drink = { //Object of the cocktail.
+                drinkName: data.drinks[i].strDrink,
+                drinkImg: data.drinks[i].strDrinkThumb,
+                alcoholic: data.drinks[i].strAlcoholic,
+                ingredients: []
             }
+
+            for(let number = 1; number < 16; number++){
+                // let addIngredient = `data.drinks`
+                // ingredients.push();
+                // return ingredients;
+            }
+
+            cocktails.push(drink);
         }
         debugger;
-
-
-        //Ingredients
-
-        //Delete the old table rows first, THEN generate the new rows from the new search results
 
        //Invoke deleteRows, then createRows:
        deleteRows();

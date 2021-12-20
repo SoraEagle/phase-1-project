@@ -3,11 +3,10 @@
 
 /*
 Descriptions:
-    table: references the "tableBody" of the "cocktailsTable" in index.html.
+    table: references the 'tableBody' of the 'cocktailsTable' in index.html.
     input: the text field in the form used to generate the table of search results.
-    filter: References variable "input" in index.html; Used to complete the URL for the fetch.
-    tableUrl: the URL for the JSON, except for the search word (filter).
-    completeUrl: the entire URL to be used for the fetch.
+    filter: References variable 'input' in index.html; Used to complete the URL for the fetch.
+    completeUrl: the entire URL to be used for the fetch; Includes 'filter' at the very end.
 */
 
 //Global scope variables: See Descriptions above for more information.
@@ -17,29 +16,47 @@ filter = input.value;
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM has loaded");
+    // console.log("DOM has loaded");
     const searchBtn = document.querySelector("#search");
 })
 
 
 function loadTable(){
-    let tableUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita";
-    let completeUrl = `tableUrl${filter}`; //The URL used to fetch the search results.
+    let completeUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${filter}`;
 
-    fetch(tableUrl, { //Find way to change to completeUrl without errors!!!
+    fetch(completeUrl, { 
         method: 'GET',
     })
     .then(response => response.json()) //Converts response to JSON
     .then(data => {
-        // console.log(data);
         /*
-        strDrink: Drink Name (String)
-        strDrinkThumb: Drink Image (String)
-        strAlcoholic: Alcoholic?(boolean)
-        strIngredient1, strIngredient2, ... strIngredient15: Ingredients (String)
+        data.drinks.strDrink: Drink Name (Array of Strings)
+        data.drinks.strDrinkThumb: Drink Image (Array of Strings)
+        data.drinks.strAlcoholic: Alcoholic?(Array of booleans)
+        data.drinks.strIngredient1, strIngredient2, ... strIngredient15: Ingredients (Array of Arrays ofStrings)
         */
 
-        //
+        
+        let drinkName = [];
+        let drinkImg = [];
+        let alcoholic = [];
+        // let ingredients = [];
+
+        for(let i = 0; i < data.drinks.length; i++){
+            
+            drinkName.push(data.drinks[i].strDrink);
+            drinkImg.push(data.drinks[i].strDrinkThumb);
+            alcoholic.push(data.drinks[i].strAlcoholic === "Alcoholic");
+            for(let number = 0; number < 15; number++){
+                // ingredients.push(`data.drinks[i].strIngredient${i+1}`);
+            }
+        }
+        debugger;
+
+
+        //Ingredients
+
+        //Delete the old table rows first, THEN generate the new rows from the new search results
 
        //Invoke deleteRows, then createRows:
        deleteRows();

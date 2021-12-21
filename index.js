@@ -37,8 +37,7 @@ function loadTable(){
         data.drinks[].strDrink: drinkName
         data.drinks[].strDrinkThumb: drinkImag 
         data.drinks[].strAlcoholic: alcoholic
-        data.drinks[].strIngredient1, strIngredient2, ... strIngredient15: ingredients (Array of ingredients)
-        */
+        data.drinks[].strIngredient1, strIngredient2, ... strIngredient15: ingredients (Array of ingredients)*/
 
 
         cocktails = []; //Delete old Array of drink Objects.
@@ -110,5 +109,6 @@ drinkForm.addEventListener("submit", tableSubmit); //Invoke the tableSubmit func
 
 
     input.addEventListener("change", () => { //Event Listener to set filter = input.value (innerText).
+        filter = input.value;
         return filter;
     });

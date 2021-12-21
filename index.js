@@ -9,13 +9,15 @@ Descriptions:
     completeUrl: the entire URL to be used for the fetch; Includes 'filter' at the very end.
     ingredients: list of each drink's ingredients.
     cocktails: Array for the 'drink' Objects.
-    drink: Object for the data.drinks variables.
+    drink: Object for the data.drinks variables being used.
 */
 
 //Global scope variables: See Descriptions above for more information.
 const table = document.getElementById("tableBody");
 let input = document.getElementById("drink");
-filter = input.value;
+let filter = input.value;
+
+let cocktails = []; //Array of Objects; In global to be used in createRows().
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,13 +35,14 @@ function loadTable(){
     .then(response => response.json()) //Converts response to JSON
     .then(data => {
         /*
-        data.drinks.strDrink: drinkName
-        data.drinks.strDrinkThumb: drinkImag 
-        data.drinks.strAlcoholic: alcoholic
-        data.drinks.strIngredient1, strIngredient2, ... strIngredient15: ingredients (Array of ingredients)
+        data.drinks[].strDrink: drinkName
+        data.drinks[].strDrinkThumb: drinkImag 
+        data.drinks[].strAlcoholic: alcoholic
+        data.drinks[].strIngredient1, strIngredient2, ... strIngredient15: ingredients (Array of ingredients)
         */
 
-        let cocktails = []; //Array of Objects
+
+        cocktails = []; //Delete old Array of drink Objects.
 
         for(let i = 0; i < data.drinks.length; i++){
             let drink = { //Object of the cocktail.
@@ -47,23 +50,36 @@ function loadTable(){
                 drinkImg: data.drinks[i].strDrinkThumb,
                 alcoholic: data.drinks[i].strAlcoholic,
                 ingredients: []
-            }
+            };
 
-            for(let number = 1; number < 16; number++){
-                // let addIngredient = `data.drinks`
-                // ingredients.push();
-                // return ingredients;
-            }
+            drink.ingredients.push( //Too repetitive?
+                data.drinks[i].strIngredient1, 
+                data.drinks[i].strIngredient2, 
+                data.drinks[i].strIngredient3, 
+                data.drinks[i].strIngredient4,
+                data.drinks[i].strIngredient5, 
+                data.drinks[i].strIngredient6,
+                data.drinks[i].strIngredient7,
+                data.drinks[i].strIngredient8,
+                data.drinks[i].strIngredient9,
+                data.drinks[i].strIngredient10,
+                data.drinks[i].strIngredient11,
+                data.drinks[i].strIngredient12,
+                data.drinks[i].strIngredient13,
+                data.drinks[i].strIngredient14,
+                data.drinks[i].strIngredient15);
 
             cocktails.push(drink);
         }
-        debugger;
 
        //Invoke deleteRows, then createRows:
        deleteRows();
+       debugger;
 
        createRows();
+       debugger;
     })
+    return cocktails; //Update cocktails in the global scope
 }
 
 

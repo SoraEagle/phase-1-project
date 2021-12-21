@@ -59,8 +59,6 @@ function loadTable(){ //Overall function for deleting old table, and generating 
 
        //Invoke deleteRows, then createRows:
        deleteRows();
-       debugger;
-
        createRows();
        debugger;
     })
@@ -70,18 +68,31 @@ function loadTable(){ //Overall function for deleting old table, and generating 
 
 function deleteRows(){ //Function to delete rows before new table is generated
     let rowCount = table.rows.length;
-    for(let i = rowCount - 1; i > 0; i--){ //
-        table.deleteRow(i);
+    for(let i = rowCount; i > 0; i--){
+        table.deleteRow(0);
     }
 }
 
 
-function createRows(){ //Function to add rows of newly generated table
-    //Loop to create a row per drink from the search result
-    // for(let i = 0; i < cocktails.length; i++){
-    //     let newRow = table.insertRow(i);
-    //     newRow.cells[0].value = cocktails[i].drinkName;
-    // }
+function createRows(){ //Function to add rows (with cells) for newly generated table
+    //Loop to create a row per drink from the search result; Another loop for cells
+    for(let i = 0; i < cocktails.length; i++){ //For the number of cocktails (vertical.)
+        let newRow = table.insertRow(i); //Create the horizontal row for the cocktail.
+
+            let cell = newRow.insertCell(0); //Cell [0, i]
+            cell.innerText = cocktails[i].drinkName;
+
+            cell = newRow.insertCell(1); //Cell [1, i]
+            cell.innerHTML = cocktails[i].drinkImg;
+
+            cell = newRow.insertCell(2); //Cell [2, i]
+            cell.innerText = cocktails[i].alcoholic;
+
+            cell = newRow.insertCell(3); //Cell [3, i]
+            cell.innerText = cocktails[i].ingredients;
+            
+            // Add the content to the cells:
+    }
 }
 
 

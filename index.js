@@ -9,8 +9,7 @@ Descriptions:
     completeUrl: the entire URL to be used for the fetch; Includes 'filter' at the very end.
     ingredients: list of each drink's ingredients.
     cocktails: Array for the 'drink' Objects.
-    drink: Object for the data.drinks variables being used.
-*/
+    drink: Object for the data.drinks variables being used.*/
 
 //Global scope variables: See Descriptions above for more information.
 const table = document.getElementById("tableBody");
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-function loadTable(){
+function loadTable(){ //Overall function for deleting old table, and generating new table from the filter.
     let completeUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${filter}`;
 
     fetch(completeUrl, { 
@@ -39,8 +38,7 @@ function loadTable(){
         data.drinks[].strAlcoholic: alcoholic
         data.drinks[].strIngredient1, strIngredient2, ... strIngredient15: ingredients (Array of ingredients)*/
 
-
-        cocktails = []; //Delete old Array of drink Objects.
+        cocktails = []; //Delete old Array.
 
         for(let i = 0; i < data.drinks.length; i++){
             let drink = { //Object of the cocktail.
@@ -50,22 +48,11 @@ function loadTable(){
                 ingredients: []
             };
 
-            drink.ingredients.push( //Too repetitive?
-                data.drinks[i].strIngredient1, 
-                data.drinks[i].strIngredient2, 
-                data.drinks[i].strIngredient3, 
-                data.drinks[i].strIngredient4,
-                data.drinks[i].strIngredient5, 
-                data.drinks[i].strIngredient6,
-                data.drinks[i].strIngredient7,
-                data.drinks[i].strIngredient8,
-                data.drinks[i].strIngredient9,
-                data.drinks[i].strIngredient10,
-                data.drinks[i].strIngredient11,
-                data.drinks[i].strIngredient12,
-                data.drinks[i].strIngredient13,
-                data.drinks[i].strIngredient14,
-                data.drinks[i].strIngredient15);
+            let allIng = Object.values(data.drinks[i]).slice(17, 32);
+
+            allIng.forEach((ing) => {
+                if(ing != null) drink.ingredients.push(ing);
+            });
 
             cocktails.push(drink);
         }
@@ -92,8 +79,8 @@ function deleteRows(){ //Function to delete rows before new table is generated
 function createRows(){ //Function to add rows of newly generated table
     //Loop to create a row per drink from the search result
     // for(let i = 0; i < cocktails.length; i++){
-    //     let new_row = table.insertRow(i);
-    //     new_row.cells[0].value = cocktails[i].drinkName;
+    //     let newRow = table.insertRow(i);
+    //     newRow.cells[0].value = cocktails[i].drinkName;
     // }
 }
 

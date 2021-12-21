@@ -16,8 +16,7 @@ Descriptions:
 const table = document.getElementById("tableBody");
 let input = document.getElementById("drink");
 let filter = input.value;
-
-let cocktails = []; //Array of Objects; In global to be used in createRows().
+let cocktails = [];
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -79,32 +78,37 @@ function loadTable(){
        createRows();
        debugger;
     })
-    return cocktails; //Update cocktails in the global scope
+    return cocktails; //Update cocktails in the global scope.
 }
 
 
 function deleteRows(){ //Function to delete rows before new table is generated
-    //Use a for loop or for each loop
+    let rowCount = table.rows.length;
+    for(let i = rowCount - 1; i > 0; i--){ //
+        table.deleteRow(i);
+    }
 }
 
 
 function createRows(){ //Function to add rows of newly generated table
-    let t = document.getElementById("cocktailsTable"); //Reference to the Cocktails Table.
-
     //Loop to create a row per drink from the search result
+    // for(let i = 0; i < cocktails.length; i++){
+    //     let new_row = table.insertRow(i);
+    //     new_row.cells[0].value = cocktails[i].drinkName;
+    // }
 }
 
 
-function tableSubmit(event){ //Function to ...
+function tableSubmit(event){ 
     event.preventDefault(); //Prevent reloading of page.
     loadTable();
 }
+
 
 let drinkForm = document.getElementById("drink-form");
 drinkForm.addEventListener("submit", tableSubmit); //Invoke the tableSubmit function with the search button.
 
 
     input.addEventListener("change", () => { //Event Listener to set filter = input.value (innerText).
-        filter = input.value;
         return filter;
     });

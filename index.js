@@ -19,7 +19,6 @@ let cocktails = [];
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // console.log("DOM has loaded");
     const searchBtn = document.querySelector("#search");
 })
 
@@ -32,12 +31,6 @@ function loadTable(){ //Overall function for deleting old table, and generating 
     })
     .then(response => response.json()) //Converts response to JSON
     .then(data => {
-        /*
-        data.drinks[].strDrink: drinkName
-        data.drinks[].strDrinkThumb: drinkImag 
-        data.drinks[].strAlcoholic: alcoholic
-        data.drinks[].strIngredient1, strIngredient2, ... strIngredient15: ingredients (Array of ingredients)*/
-
         cocktails = []; //Delete old Array.
 
         for(let i = 0; i < data.drinks.length; i++){
@@ -57,7 +50,6 @@ function loadTable(){ //Overall function for deleting old table, and generating 
             cocktails.push(drink);
         }
 
-       //Invoke deleteRows, then createRows:
        deleteRows();
        createRows();
     })
@@ -74,8 +66,8 @@ function deleteRows(){ //Function to delete rows before new table is generated
 
 
 function createRows(){ //Function to add rows (with cells) for newly generated table
-    for(let i = 0; i < cocktails.length; i++){ //For the number of cocktails (vertical.)
-        let newRow = table.insertRow(i); //Create the horizontal row for the cocktail.
+    for(let i = 0; i < cocktails.length; i++){ //For the number of cocktails (vertical).
+        let newRow = table.insertRow(i); //Create the (horizontal) row for the cocktail.
 
             let cell = newRow.insertCell(0); //Cell [0, i]
             cell.innerText = cocktails[i].drinkName;
@@ -90,6 +82,7 @@ function createRows(){ //Function to add rows (with cells) for newly generated t
             cell.innerText = cocktails[i].ingredients;            
     }
 }
+
 
 function image(pic){ //Function to create Image element from URL
     let img = document.createElement('img');
@@ -109,7 +102,7 @@ let drinkForm = document.getElementById("drink-form");
 drinkForm.addEventListener("submit", tableSubmit); //Invoke the tableSubmit function with the search button.
 
 
-    input.addEventListener("change", () => { //Event Listener to set filter = input.value (innerText).
+    input.addEventListener("change", () => { //Event Listener to set filter = input.value.
         filter = input.value;
         return filter;
     });

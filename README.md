@@ -28,7 +28,10 @@ Clone the repo:
 
 <!-- ## Usage -->
 
-<!--  -->
+    ```
+    //filter: References variable 'input' in index.html; Used to complete the URL for the fetch method.
+    filter = input.value;
+    ```
 
 
 ## Roadmap

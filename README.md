@@ -3,7 +3,7 @@
 
 <!-- ## Description -->
 phase-1-project is a project to create a website that, using a search form and the TheCocktailDB API,
-create a table made of the search results.
+creates a table made of the search results.
 
 ## Features
 A search form (a text field and a Search button)
@@ -20,16 +20,15 @@ A table that, after the search form is submitted, contains:
 
 
 ## Installation
-Clone the repo: 
+Clone the repo:
+    ```bash 
     git clone https://github.com/SoraEagle/phase-1-project.git
+    ```
 
 
 <!-- ## Usage -->
 
 <!--  -->
-
-
-<!-- ## Support -->
 
 
 ## Roadmap

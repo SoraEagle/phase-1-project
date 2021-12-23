@@ -21,7 +21,7 @@ A table that, after the search form is submitted, contains:
 
 ## Installation
 Clone the repo:
-    ```bash 
+    ```
     git clone https://github.com/SoraEagle/phase-1-project.git
     ```
 

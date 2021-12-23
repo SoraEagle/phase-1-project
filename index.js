@@ -5,7 +5,7 @@
 Descriptions:
     table: references the 'tableBody' of the 'cocktailsTable' in index.html.
     input: the text field in the form used to generate the table of search results.
-    filter: References variable 'input' in index.html; Used to complete the URL for the fetch.
+    filter: References variable 'input' in index.html; Used to complete the URL for the fetch method.
     completeUrl: the entire URL to be used for the fetch; Includes 'filter' at the very end.
     ingredients: list of each drink's ingredients.
     cocktails: Array for the 'drink' Objects.

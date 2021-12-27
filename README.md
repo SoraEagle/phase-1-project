@@ -28,13 +28,13 @@ Clone the repo:
 
 ## Usage
     ```
-    # returns 'gin' cocktails
-    input.value = 'gin';
     let filter = input.value; //What is in the text field.
     let completeUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${filter}`;
 
     fetch(completeUrl)
     ```
+
+<!-- Add screenshots here -->
 
 
 ## Roadmap

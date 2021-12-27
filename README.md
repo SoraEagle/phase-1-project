@@ -16,13 +16,22 @@ A table that, after the search form is submitted, contains:
 
 <!-- ## Visuals -->
 
-<!--  -->
+<!-- Link to YouTube video -->
 
 
 ## Installation
 Clone the repo:
     ```
     git clone https://github.com/SoraEagle/phase-1-project.git
+    ```
+
+
+## Usage
+    ```
+    let filter = input.value;
+    let completeUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${filter}`;
+
+    fetch(completeUrl)
     ```
 
 

@@ -37,7 +37,7 @@ function loadTable(){ //Umbrella function for deleting old table, and generating
 
             let allIng = Object.values(data.drinks[i]).slice(17, 32);
             allIng.forEach((ing) => {
-                if(ing != null) drink.ingredients.push(ing);
+                if(ing != null) drink.ingredients.push(" " + ing);
             });
             cocktails.push(drink);
         }

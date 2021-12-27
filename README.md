@@ -26,8 +26,8 @@ Clone the repo:
     ```
 
 
-<!-- ## Usage
-    ```
+## Usage
+ <!-- ```
     let filter = input.value; //What is in the text field.
     let completeUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${filter}`;
 
@@ -35,6 +35,7 @@ Clone the repo:
     ``` -->
 
 <!-- Add screenshots here -->
+screenshots/deleteRows createRows.png
 
 
 ## Roadmap

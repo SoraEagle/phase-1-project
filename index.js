@@ -1,8 +1,4 @@
-//Write JS code here
-//Psuedocode:
-
-/*
-Descriptions:
+/*Descriptions:
     table: references the 'tableBody' of the 'cocktailsTable' in index.html.
     input: the text field in the form used to generate the table of search results.
     filter: References variable 'input' in index.html; Used to complete the URL for the fetch method.
@@ -18,18 +14,16 @@ let filter = input.value;
 let cocktails = [];
 
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => { //Make sure these work after page loads...
     const searchBtn = document.querySelector("#search");
 })
 
 
-function loadTable(){ //Overall function for deleting old table, and generating new table from the filter.
+function loadTable(){ //Umbrella function for deleting old table, and generating new table from the filter.
     let completeUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${filter}`;
 
-    fetch(completeUrl, { 
-        method: 'GET',
-    })
-    .then(response => response.json()) //Converts response to JSON
+    fetch(completeUrl) //Fetch info from TheCocktailDB.
+    .then(response => response.json()) //Converts response to JSON.
     .then(data => {
         cocktails = []; //Delete old Array.
 
@@ -42,11 +36,9 @@ function loadTable(){ //Overall function for deleting old table, and generating 
             };
 
             let allIng = Object.values(data.drinks[i]).slice(17, 32);
-
             allIng.forEach((ing) => {
                 if(ing != null) drink.ingredients.push(ing);
             });
-
             cocktails.push(drink);
         }
 
@@ -57,7 +49,7 @@ function loadTable(){ //Overall function for deleting old table, and generating 
 }
 
 
-function deleteRows(){ //Function to delete rows before new table is generated
+function deleteRows(){ //Function to delete rows before new table is generated.
     let rowCount = table.rows.length;
     for(let i = rowCount; i > 0; i--){
         table.deleteRow(0);
@@ -84,9 +76,9 @@ function createRows(){ //Function to add rows (with cells) for newly generated t
 }
 
 
-function image(pic){ //Function to create Image element from URL
+function image(pic){ //Function to create Image element from URL.
     let img = document.createElement('img');
-    img.src = pic;
+    img.src = pic; //Set img source to the arbitrary "pic" value(cocktails[i].drinkImg).
     img.style.height = "100px";
     return img;
 }

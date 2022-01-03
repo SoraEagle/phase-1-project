@@ -1,4 +1,3 @@
-<!-- Name -->
 # phase-1-project
 
 <!-- ## Description -->
@@ -14,9 +13,8 @@ A table that, after the search form is submitted, contains:
     4). A list of the ingredients for making each of the drinks.
 
 
-<!-- ## Visuals -->
-
-<!-- Link to YouTube video -->
+## Visuals
+https://www.youtube.com/watch?v=uqUS_yDhzVA
 
 
 ## Installation

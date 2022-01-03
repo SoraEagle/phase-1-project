@@ -26,18 +26,6 @@ Clone the repo:
     ```
 
 
-## Usage
- <!-- ```
-    let filter = input.value; //What is in the text field.
-    let completeUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${filter}`;
-
-    fetch(completeUrl)
-    ``` -->
-
-<!-- Add screenshots here -->
-screenshots/deleteRows createRows.png
-
-
 ## Roadmap
 Add cosmetics and color to the page.
 
